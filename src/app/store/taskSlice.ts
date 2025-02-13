@@ -31,15 +31,12 @@ export const taskSlice = createSlice({
 			});
 		},
 		deleteTask: (state, action) => {
-			console.log("action/delete", action);
 			return state.filter((task: any) => task.id !== action.payload);
 		},
 		editTask: (state, action) => {
-			console.log("action/edit", action);
 			const foundTask = state.find(
 				(task: any) => task.id === action.payload.id
 			);
-			console.log("foundTask", foundTask);
 			if (foundTask) {
 				foundTask.title = action.payload.title;
 				foundTask.description = action.payload.description;

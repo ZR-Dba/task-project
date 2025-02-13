@@ -19,12 +19,10 @@ let tasks: any = [
 
 export async function GET() {
 	const tasks = await Task.find();
-	console.log("get successfully");
 	return NextResponse.json({ tasks });
 }
 
 export async function POST(req: Request) {
-	console.log("post successfully");
 	const { title, description, date } = await req.json();
 	await connectMongoDB();
 	const newTask = {
